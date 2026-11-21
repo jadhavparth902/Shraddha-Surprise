@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little Surprise for Shraddha 💗</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="hearts" id="hearts"></div>
+
+  <main class="container">
+
+    <!-- Welcome -->
+    <section class="page active" id="welcome">
+      <div class="emoji">💌</div>
+      <p class="small">A LITTLE SURPRISE FOR</p>
+      <h1>Shraddha</h1>
+      <p class="message">
+        Hey Bestie! I made something special
+        just to make you smile. 💗
+      </p>
+      <button onclick="showPage('bouquet')">
+        Open Your Surprise 🎀
+      </button>
+    </section>
+
+    <!-- Bouquet -->
+    <section class="page" id="bouquet">
+      <p class="small">A LITTLE GIFT FOR YOU</p>
+      <h1>Flowers for You 🌷</h1>
+      <div class="big-emoji">💐</div>
+      <p class="message">
+        Just like these flowers, may your life
+        always be full of happiness and beautiful moments.
+      </p>
+      <button onclick="showPage('chocolate')">
+        Next Surprise 💗
+      </button>
+    </section>
+
+    <!-- Kinder Joy -->
+    <section class="page" id="chocolate">
+      <p class="small">SOMETHING SWEET</p>
+      <h1>Sweet Treat for You 🍫</h1>
+      <div class="big-emoji">🍫</div>
+      <div class="gift-box">🥚 Kinder Joy 🎁</div>
+      <p class="message">
+        A little sweetness for the sweetest friend!
+        Hope this brings a big smile to your face. 🥰
+      </p>
+      <button onclick="showPage('gifts')">
+        More Surprises 🎁
+      </button>
+    </section>
+
+    <!-- Gifts -->
+    <section class="page" id="gifts">
+      <p class="small">PICK A LITTLE SURPRISE</p>
+      <h1>Gifts for My Bestie 🎁</h1>
+
+      <div class="gift-list">
+        <button class="gift" onclick="openGift('You deserve all the happiness in the world! 💖')">
+          🌸 A Flower
+        </button>
+        <button class="gift" onclick="openGift('Sending you a big virtual hug! 🤗')">
+          🧸 A Hug
+        </button>
+        <button class="gift" onclick="openGift('Never stop smiling, Shraddha! Your smile is precious. 😊')">
+          💌 A Note
+        </button>
+      </div>
+
+      <button onclick="showPage('openwhen')">
+  Open When Messages 💌
+</button>
+    </section>
+
+    <!-- Open When Messages -->
+<section class="page" id="openwhen">
+
+  <p class="small">LITTLE MESSAGES FOR YOU</p>
+
+  <h1>Open When... 💌</h1>
+
+  <p class="message">
+    Hey Shraddha! Choose an envelope.
+    I have a little message for every mood. 💗
+  </p>
+
+  <div class="envelopes">
+
+    <button class="envelope"
+      onclick="openMessage('sad')">
+      💗
+      <span>When You Feel Sad</span>
+    </button>
+
+    <button class="envelope"
+      onclick="openMessage('smile')">
+      🥰
+      <span>When You Need a Smile</span>
+    </button>
+
+    <button class="envelope"
+      onclick="openMessage('alone')">
+      🤗
+      <span>When You Feel Alone</span>
+    </button>
+
+    <button class="envelope"
+      onclick="openMessage('motivation')">
+      🌸
+      <span>When You Need Motivation</span>
+    </button>
+
+    <button class="envelope"
+      onclick="openMessage('miss')">
+      💌
+      <span>When You Miss Me</span>
+    </button>
+
+  </div>
+
+  <div class="message-card" id="messageCard">
+    <div class="big-emoji" id="messageEmoji">💗</div>
+    <h2 id="messageTitle">A message for you</h2>
+    <p id="messageText"></p>
+    <button onclick="closeMessage()">Close 💕</button>
+  </div>
+
+  <button onclick="showPage('wishes')">
+    Final Wishes 💗
+  </button>
+
+</section>
+    <!-- Wishes -->
+    <section class="page" id="wishes">
+      <p class="small">FROM MY HEART TO YOU</p>
+      <h1>Dear Shraddha 💗</h1>
+
+      <div class="letter">
+        Dear Bestie,<br><br>
+        I just want to remind you how special you are.
+        May your days be filled with laughter, your
+        dreams come true, and your heart always stay happy.
+        <br><br>
+        Thank you for being you. Keep smiling, keep shining,
+        and never forget how amazing you are.
+        <br><br>
+        Lots of love and best wishes! 🌷
+        <br><br>
+        Your Best Friend ❤️
+      </div>
+
+      <p class="message">You are truly one of a kind! 🥹</p>
+
+      <button onclick="showPage('welcome')">
+        See Again ↻
+      </button>
+    </section>
+
+    <!-- Popup -->
+    <div class="popup" id="popup">
+      <div class="popup-card">
+        <div class="big-emoji">💝</div>
+        <p id="popupMessage"></p>
+        <button onclick="closeGift()">Thank You 💗</button>
+      </div>
+    </div>
+
+    <!-- Simple Music Player -->
+<div class="music-player">
+    <h2>🎵 Song for you</h2>
+
+    <audio controls preload="metadata">
+        <source src="./music/friendship-song.mp3" type="audio/mpeg">
+        Your browser does not support audio.
+    </audio>
+</div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

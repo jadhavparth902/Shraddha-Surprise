@@ -1,0 +1,367 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe4ef, #fff1f5, #fce1ff);
+  font-family: 'Quicksand', sans-serif;
+  color: #743b58;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 650px;
+  min-height: 100vh;
+  margin: auto;
+  padding: 25px 18px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.page {
+  display: none;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.82);
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 38px 22px;
+  box-shadow: 0 12px 35px rgba(190, 90, 130, 0.13);
+  animation: appear 0.6s ease;
+}
+
+.page.active {
+  display: block;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  color: #d65b91;
+  font-size: clamp(30px, 7vw, 43px);
+  margin: 12px 0 20px;
+}
+
+.small {
+  color: #bd78a0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.emoji {
+  font-size: 75px;
+  margin-bottom: 15px;
+}
+
+.big-emoji {
+  font-size: 100px;
+  margin: 20px 0;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% { transform: translateY(-10px); }
+}
+
+.message {
+  font-size: 17px;
+  line-height: 1.8;
+  margin: 18px auto 25px;
+  max-width: 460px;
+}
+
+button {
+  border: none;
+  border-radius: 30px;
+  padding: 14px 25px;
+  background: linear-gradient(135deg, #f18bb5, #d85b94);
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin: 8px 5px;
+  box-shadow: 0 6px 15px rgba(216, 91, 148, 0.2);
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+}
+
+.gift-box {
+  display: inline-block;
+  background: #fff0f5;
+  padding: 15px 22px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.gift-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 25px 0;
+}
+
+button.gift {
+  background: #fff0f5;
+  color: #bd5687;
+  border: 1px solid #f5c3d8;
+  box-shadow: none;
+}
+
+.photos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.photo {
+  width: 43%;
+  max-width: 190px;
+  height: 200px;
+  background: #ffe4ef;
+  border: 7px solid white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px #dca3bd;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.letter {
+  background: #fff4f7;
+  border: 1px dashed #e9a2c0;
+  border-radius: 20px;
+  padding: 22px;
+  text-align: left;
+  font-size: 16px;
+  line-height: 1.9;
+  margin: 20px 0;
+}
+
+.music-player {
+  text-align: center;
+  margin-top: 25px;
+  padding: 15px;
+  background: rgba(255,255,255,0.75);
+  border-radius: 20px;
+}
+
+.music-player p {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+audio {
+  width: 100%;
+  max-width: 350px;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(100, 40, 70, 0.45);
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  z-index: 5;
+}
+
+.popup.show {
+  display: flex;
+}
+
+.popup-card {
+  background: white;
+  border-radius: 25px;
+  padding: 30px;
+  max-width: 350px;
+  text-align: center;
+  box-shadow: 0 10px 30px #8f4e6b55;
+}
+
+.popup-card p {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  bottom: -30px;
+  animation: rise 8s linear forwards;
+  opacity: 0.65;
+}
+
+@keyframes rise {
+  to {
+    transform: translateY(-110vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .page { padding: 30px 16px; }
+  .photo { height: 150px; }
+  .message { font-size: 15px; }
+}
+/* Open When Messages */
+
+.envelopes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 25px 0;
+}
+
+.envelope {
+  min-height: 125px;
+  background: linear-gradient(135deg, #fff0f6, #ffe0ec);
+  color: #c65387;
+  border: 2px solid #f8c3d8;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 35px;
+  box-shadow: 0 5px 15px #e9a5c133;
+}
+
+.envelope span {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.envelope:hover {
+  background: #ffd9e9;
+  transform: translateY(-5px);
+}
+
+.message-card {
+  display: none;
+  background: #fff0f6;
+  border: 2px dashed #e9a2c0;
+  border-radius: 22px;
+  padding: 25px 18px;
+  margin: 20px 0;
+  animation: appear 0.5s ease;
+}
+
+.message-card.show {
+  display: block;
+}
+
+.message-card h2 {
+  color: #d65b91;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 15px;
+}
+
+.message-card p {
+  line-height: 1.9;
+  font-size: 16px;
+}
+
+@media (max-width: 380px) {
+  .envelopes {
+    grid-template-columns: 1fr;
+  }
+}
+.music-player {
+  background: linear-gradient(135deg, #fff0f6, #ffe0ec);
+  border: 2px solid white;
+  border-radius: 25px;
+  padding: 22px 15px;
+  margin: 25px auto;
+  text-align: center;
+  box-shadow: 0 8px 20px #d65b9130;
+}
+
+.music-player h3 {
+  color: #d65b91;
+  margin-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+}
+
+.music-player p {
+  color: #a65b7d;
+  margin: 10px 0;
+}
+
+.music-player audio {
+  width: 100%;
+  max-width: 350px;
+}
+/* Simple Song Player */
+
+.music-player {
+    text-align: center;
+    background: #ffe4ef;
+    padding: 25px 15px;
+    margin: 25px auto;
+    width: 85%;
+    max-width: 450px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+}
+
+.music-player h2 {
+    color: #e75480;
+    margin-bottom: 20px;
+}
+
+.music-player audio {
+    width: 100%;
+    max-width: 350px;
+}
+.music-player {
+    text-align: center;
+    background: #ffe4ef;
+    padding: 25px 15px;
+    margin: 25px auto;
+    width: 85%;
+    max-width: 450px;
+    border-radius: 20px;
+}
+
+.music-player h2 {
+    color: #e75480;
+    margin-bottom: 20px;
+}
+
+.music-player audio {
+    width: 100%;
+    max-width: 350px;
+}
